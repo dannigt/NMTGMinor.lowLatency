@@ -2,12 +2,16 @@
 Based on https://github.com/quanpn90/NMTGMinor and https://github.com/jniehues-kit/SLT.KIT
 
 ## Requirements
-* Python > 3.6
+For training:
+* Python >= 3.6
 * pytorch
 * hdf5
 * apex
 * kaldiio
-* sacreBleu
+
+For eval:
+* sacrebleu
+* nmtpytorch
 
 ## Data prep
 Get pre-packaged data via https://github.com/srvk/how2-dataset
@@ -39,18 +43,20 @@ First chunk the input utterances by:
 
 Point to the partial utterances in test set:
 `ln -s $RESDIR/how2/data/prepro/eval_partial_0.5sec/feats.scp $RESDIR/how2/data/prepro/eval/dev5.0.5sec.scp`
+
 `ln -s $RESDIR/how2/data/prepro/eval_partial_0.5sec/num.partial.seqs.0.5sec.pickle $RESDIR/how2/data/prepro/eval/dev5.0.5sec.num.partial.seqs.pickle`
 
+#### Strategy: local agreement
 Run prediction and eval under strategy local agreement:
 
 `./pred.agree.sh`
 
+#### Strategy: hold-n
 Run prediction and eval under strategy hold-n:
 
 `./pred.holdn.sh`
 
+#### Strategy: wait-k
 Run prediction and eval under strategy wait-k:
 
 `./pred.waitk.sh`
-
-
