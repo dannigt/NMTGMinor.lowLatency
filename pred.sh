@@ -16,7 +16,7 @@ echo $BASEDIR
 for tst in dev5
 do
 	export BEAMSIZE=8
-        $RESDIR/scripts/NMTGMinor/Translate.speech.sh $tst prepro $modelName
+        $SLTKITDIR/scripts/NMTGMinor/Translate.speech.sh $tst prepro $modelName
 
 	for beam in .beam8. ; do
         	echo $BASEDIR/data/$modelName/eval/${tst}${beam}t
