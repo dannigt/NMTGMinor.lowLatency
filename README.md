@@ -27,8 +27,9 @@ Train a unidirectional model by:
 
 `./train.sh`
 
-where `NMTGMinor/Train.speech.uni0.sh` gets called. `-limit_rhs_steps` controls the number of look-ahead steps. 
-`-limit_rhs_steps=0` means no look-ahead.
+where `NMTGMinor/Train.speech.uni0.sh` gets called. 
+
+`-limit_rhs_steps` controls the number of look-ahead steps. `-limit_rhs_steps=0` means no look-ahead.
 
 ## Predict & Eval
 ### Full-sequence decoding
@@ -42,6 +43,7 @@ First chunk the input utterances by:
 `python ./smalltools/create_chunks.py $RESDIR/how2/data/prepro/eval/dev5.scp $RESDIR/how2/data/prepro/eval_partial_0.5sec 50`
 
 Point to the partial utterances in test set:
+
 `ln -s $RESDIR/how2/data/prepro/eval_partial_0.5sec/feats.scp $RESDIR/how2/data/prepro/eval/dev5.0.5sec.scp`
 
 `ln -s $RESDIR/how2/data/prepro/eval_partial_0.5sec/num.partial.seqs.0.5sec.pickle $RESDIR/how2/data/prepro/eval/dev5.0.5sec.num.partial.seqs.pickle`
